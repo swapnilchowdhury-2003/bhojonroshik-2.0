@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Menu</title>
+
+    <!-- বুটস্ট্র্যাপ CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #111;
+            background-image: linear-gradient(rgba(12, 12, 12, 0.9), rgba(12, 12, 12, 0.9)), url('images/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 420px;
+            background-attachment: fixed;
+        }
+
+        h2 {
+            color: #f8f9fa;
+        }
+
+        .navbar-brand img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        /* প্রতিটা ডিশ কার্ডের ছবির উচ্চতা সমান রাখা */
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* কার্ডে হোভার করলে হালকা শ্যাডো */
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== নেভবার শুরু ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <!-- রেস্টুরেন্টের নাম -->
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+                <img src="images/logo.png" alt="Bhojonroshik Logo">
+                <span>Bhojonroshik</span>
+            </a>
+
+            <!-- মোবাইলে হ্যামবার্গার বাটন -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- নেভবার লিংক গুলো -->
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <!-- হোম লিংক -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <!-- মেনু লিংক — এই পেজেই আছি তাই active -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">Menu</a>
+                    </li>
+
+                    <!-- অ্যাবাউট লিংক -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- ========== নেভবার শেষ ========== -->
+
+
+    <!-- ========== মেনু সেকশন শুরু ========== -->
+    <div class="container my-5">
+
+        <!-- পেজের শিরোনাম -->
+        <h2 class="text-center fw-bold mb-5">আমাদের মেনু</h2>
+
+        <div class="text-center mb-4">
+            <a href="chef-select.html" class="btn btn-outline-warning btn-lg fw-bold">Select Chef</a>
+        </div>
+
+        <!-- ডিশ কার্ড গ্রিড -->
+        <div class="row g-4">
+
+            <!-- ডিশ ০১ — Masala Chai -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-01.jpg -->
+                    <img src="images/dish-01.jpg" class="card-img-top" alt="Masala Chai">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Masala Chai</h5>
+                        <!-- ডিটেইল বাটন — dish-01.html পেজে যাবে -->
+                        <a href="dish-01.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০২ — Hazelnut Cold Coffee -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-02.jpg -->
+                    <img src="images/dish-02.jpg" class="card-img-top" alt="Hazelnut Cold Coffee">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Hazelnut Cold Coffee</h5>
+                        <!-- ডিটেইল বাটন — dish-02.html পেজে যাবে -->
+                        <a href="dish-02.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৩ — Lemon Mint Mojito -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-03.jpg -->
+                    <img src="images/dish-03.jpg" class="card-img-top" alt="Lemon Mint Mojito">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Lemon Mint Mojito</h5>
+                        <!-- ডিটেইল বাটন — dish-03.html পেজে যাবে -->
+                        <a href="dish-03.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৪ — Chicken Cheese Burger -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-04.jpg -->
+                    <img src="images/dish-04.jpg" class="card-img-top" alt="Chicken Cheese Burger">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chicken Cheese Burger</h5>
+                        <!-- ডিটেইল বাটন — dish-04.html পেজে যাবে -->
+                        <a href="dish-04.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৫ — Paneer Tikka Sandwich -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-05.jpg -->
+                    <img src="images/dish-05.jpg" class="card-img-top" alt="Paneer Tikka Sandwich">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Paneer Tikka Sandwich</h5>
+                        <!-- ডিটেইল বাটন — dish-05.html পেজে যাবে -->
+                        <a href="dish-05.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৬ — Chicken Nachos -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-06.jpg -->
+                    <img src="images/dish-06.jpg" class="card-img-top" alt="Chicken Nachos">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chicken Nachos</h5>
+                        <!-- ডিটেইল বাটন — dish-06.html পেজে যাবে -->
+                        <a href="dish-06.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৭ — Vegetable Spring Rolls -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-07.jpg -->
+                    <img src="images/dish-07.jpg" class="card-img-top" alt="Vegetable Spring Rolls">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Vegetable Spring Rolls</h5>
+                        <!-- ডিটেইল বাটন — dish-07.html পেজে যাবে -->
+                        <a href="dish-07.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৮ — Chicken Dum Biryani -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-08.jpg -->
+                    <img src="images/dish-08.jpg" class="card-img-top" alt="Chicken Dum Biryani">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chicken Dum Biryani</h5>
+                        <!-- ডিটেইল বাটন — dish-08.html পেজে যাবে -->
+                        <a href="dish-08.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ০৯ — Mutton Rezala -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-09.jpg -->
+                    <img src="images/dish-09.jpg" class="card-img-top" alt="Mutton Rezala">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mutton Rezala</h5>
+                        <!-- ডিটেইল বাটন — dish-09.html পেজে যাবে -->
+                        <a href="dish-09.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ১০ — Prawn Malai Curry -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-10.jpg -->
+                    <img src="images/dish-10.jpg" class="card-img-top" alt="Prawn Malai Curry">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Prawn Malai Curry</h5>
+                        <!-- ডিটেইল বাটন — dish-10.html পেজে যাবে -->
+                        <a href="dish-10.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ১১ — Butter Chicken with Naan -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-11.jpg -->
+                    <img src="images/dish-11.jpg" class="card-img-top" alt="Butter Chicken with Naan">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Butter Chicken with Naan</h5>
+                        <!-- ডিটেইল বাটন — dish-11.html পেজে যাবে -->
+                        <a href="dish-11.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ১২ — Grilled Fish Steak -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-12.jpg -->
+                    <img src="images/dish-12.jpg" class="card-img-top" alt="Grilled Fish Steak">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Grilled Fish Steak</h5>
+                        <!-- ডিটেইল বাটন — dish-12.html পেজে যাবে -->
+                        <a href="dish-12.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ১৩ — Gulab Jamun with Ice Cream -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-13.jpg -->
+                    <img src="images/dish-13.jpg" class="card-img-top" alt="Gulab Jamun with Ice Cream">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gulab Jamun with Ice Cream</h5>
+                        <!-- ডিটেইল বাটন — dish-13.html পেজে যাবে -->
+                        <a href="dish-13.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ১৪ — Chocolate Lava Cake -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-14.jpg -->
+                    <img src="images/dish-14.jpg" class="card-img-top" alt="Chocolate Lava Cake">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Chocolate Lava Cake</h5>
+                        <!-- ডিটেইল বাটন — dish-14.html পেজে যাবে -->
+                        <a href="dish-14.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ডিশ ১৫ — Mango Cheesecake -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100">
+                    <!-- ছবি save করো: images/dish-15.jpg -->
+                    <img src="images/dish-15.jpg" class="card-img-top" alt="Mango Cheesecake">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mango Cheesecake</h5>
+                        <!-- ডিটেইল বাটন — dish-15.html পেজে যাবে -->
+                        <a href="dish-15.html" class="btn btn-warning btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- ডিশ কার্ড গ্রিড শেষ -->
+
+    </div>
+    <!-- ========== মেনু সেকশন শেষ ========== -->
+
+
+    <!-- ========== ফুটার শুরু ========== -->
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <!-- সব তথ্য এক লাইনে -->
+        <p class="mb-0">📞 01792161240 &nbsp;|&nbsp; 📍 Chittagong, Bangladesh &nbsp;|&nbsp; Made by Swapnil &copy; 2026</p>
+    </footer>
+    <!-- ========== ফুটার শেষ ========== -->
+
+    <!-- বুটস্ট্র্যাপ JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
