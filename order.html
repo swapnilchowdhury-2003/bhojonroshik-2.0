@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* অর্ডার কার্ডের ডিজাইন */
+        .order-card {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .form-label { font-weight: bold; color: #333; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card order-card p-4">
+                    <h2 class="text-center mb-1 text-danger fw-bold">🍽️ Order Now</h2>
+                    <p class="text-center text-muted small mb-4">আপনার অর্ডার দিন</p>
+
+                      <form id="orderForm"
+                          action="https://docs.google.com/forms/d/e/1FAIpQLSeaTc9JQPEKMj3j9hVfB6AzWmmZzXiJmXtdlUCMttjmxbWSYA/formResponse"
+                          method="POST"
+                          target="hidden_iframe">
+
+                        <!-- Food Item — URL থেকে auto fill হবে -->
+                        <div class="mb-3">
+                            <label class="form-label">FOOD ITEM</label>
+                            <input type="text" id="foodItem" name="entry.1364024402" class="form-control" placeholder="Enter food item" required>
+                        </div>
+
+                        <!-- Table Number -->
+                        <div class="mb-3">
+                            <label class="form-label">TABLE NUMBER</label>
+                            <input type="number" id="tableNumber" name="entry.1894539485" class="form-control" placeholder="আপনার টেবিল নম্বর লিখুন" required>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="mb-3">
+                            <label class="form-label">QUANTITY</label>
+                            <input type="number" id="quantity" name="entry.1475836413" class="form-control" placeholder="কতটি চাই?" min="1" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 fw-bold py-2">
+                            Place Order
+                        </button>
+                    </form>
+
+                    <!-- সফল হলে এই message দেখাবে -->
+                    <div id="successMsg" class="alert alert-success mt-3 d-none">
+                        ✅ আপনার অর্ডারটি সফলভাবে জমা হয়েছে! ধন্যবাদ।
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <iframe name="hidden_iframe" class="d-none"></iframe>
+
+    <script>
+        // =============================================
+        // STEP 1: URL থেকে food item নাম নেওয়া
+        // যেমন: order.html?item=Chicken+Biriyani
+        // =============================================
+        const params = new URLSearchParams(window.location.search);
+        const item = params.get("item"); // food page থেকে পাঠানো নাম
+
+        // Food item ফিল্ডে auto fill করা
+        if (item) {
+            document.getElementById("foodItem").value = item;
+        } else {
+            document.getElementById("foodItem").value = "";
+        }
+
+        // =============================================
+        // STEP 2: Submit এর পর success message দেখানো
+        // =============================================
+        document.getElementById("orderForm").addEventListener("submit", function() {
+            setTimeout(() => {
+                document.getElementById("successMsg").classList.remove("d-none");
+                alert("✅ অর্ডার সফলভাবে জমা হয়েছে! ধন্যবাদ।");
+            }, 400);
+        });
+    </script>
+
+</body>
+</html>
