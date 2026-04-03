@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Gulab Jamun with Ice Cream</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* ন্যাভবার লোগো স্টাইল */
+        .navbar-brand img {
+            max-width: 160px;
+        }
+
+        /* স্কেচ অনুযায়ী বাম দিকের বড় ছবি */
+        .food-pic {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* ডান দিকের ফুড ডাটা বক্স */
+        .food-data {
+            background-color: #fff0f5; /* মিষ্টির জন্য হালকা পিঙ্ক/ডেজার্ট থিম */
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #e91e63;
+        }
+
+        /* বর্ণনা সেকশন */
+        .food-description {
+            margin-top: 30px;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* বাটন সেকশন */
+        .action-buttons {
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Bhojonroshik Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-7 mb-4">
+                <img src="images/dish-13.jpg" alt="Gulab Jamun with Ice Cream" class="food-pic img-fluid">
+            </div>
+
+            <div class="col-md-5">
+                <div class="food-data">
+                    <h1 class="display-5 fw-bold text-dark">Gulab Jamun & Ice Cream</h1>
+                    <p class="lead fw-bold" style="color: #e91e63;">Warm, syrup-soaked Gulab Jamuns paired with cold Vanilla Ice Cream.</p>
+                    
+                    <ul class="list-unstyled mt-3 fs-5">
+                        <li><strong>🍧 Category:</strong> Dessert / Sweet</li>
+                        <li><strong>🌡️ Temperature:</strong> Hot & Cold Fusion</li>
+                        <li><strong>⏲️ Prep Time:</strong> 5 mins</li>
+                        <li><strong>⭐ Topping:</strong> Sliced Almonds & Pistachios</li>
+                    </ul>
+
+                    <p class="h3 text-dark fw-bold mt-4">Price: <span style="color: #e91e63;">150 TK</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 food-description">
+                <hr>
+                <h3 class="fw-bold" style="color: #e91e63;">The Sweetest Finale</h3>
+                <p>'Bhojonroshik' এর বিশেষ ডেজার্ট হলো এই গরম গোলাপ জামুন আর ভ্যানিলা আইসক্রিমের কম্বিনেশন। চিনির সিরায় ডুবানো নরম তুলতুলে গোলাপ জামুনের সাথে যখন ঠান্ডা আইসক্রিম মেশে, তখন তৈরি হয় এক স্বর্গীয় স্বাদ। এটি আপনার রাজকীয় ডিনারের সমাপ্তি টানবে একরাশ তৃপ্তি দিয়ে। ছোট-বড় সবারই এটি অসম্ভব প্রিয় একটি আইটেম।</p>
+            </div>
+        </div>
+
+        <div class="row action-buttons">
+            <div class="col-12 d-grid gap-3 d-md-flex justify-content-md-start">
+                
+                <button id="custom-btn-dish-13" type="button" name="custom_food_button" class="btn btn-warning btn-lg px-4 fw-bold" onclick="window.location.href='custom.html'">Extra Toppings</button>
+                <a href="order.html?item=Gulab%20Jamun%20with%20Ice%20Cream" class="btn btn-success btn-lg px-4 fw-bold">Order Now</a>
+                <a href="menu.html" class="btn btn-outline-secondary btn-lg px-4">Back to Menu</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <p class="mb-1">📞 01792161240</p>
+        <p class="mb-1">📍 Chittagong, Bangladesh</p>
+        <p class="mb-0">Made by Swapnil &copy; 2026 Bhojonroshik </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

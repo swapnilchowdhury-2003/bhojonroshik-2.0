@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Lemon Mint Mojito</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* স্কেচ অনুযায়ী Header / Navbar স্টাইল */
+        .navbar-brand img {
+            max-width: 160px; /* লোগোর সাইজ */
+        }
+
+        /* স্কেচ অনুযায়ী Food Pic স্টাইল */
+        .food-pic {
+            max-width: 100%;
+            border-radius: 15px; /* হালকা বর্ডার রেডিয়াস */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Food Data সেকশন স্টাইল */
+        .food-data {
+            background-color: #fdfdfe; /* হালকা ব্যাকগ্রাউন্ড */
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        /* Description সেকশন স্টাইল */
+        .food-description {
+            margin-top: 30px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* স্কেচ অনুযায়ী বাটন গুলোর জন্য গ্যাপ */
+        .action-buttons {
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Bhojonroshik Logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-7 mb-4 mb-md-0">
+                <img src="images/mojito.jpg" alt="Lemon Mint Mojito" class="food-pic img-fluid">
+            </div>
+
+            <div class="col-md-5">
+                <div class="food-data">
+                    <h1 class="display-5 fw-bold text-success">Lemon Mint Mojito</h1>
+                    <p class="lead fw-bold text-muted">A vibrant blend of fresh lime, mint leaves, and a dash of sweet chaos.</p>
+                    
+                    <ul class="list-unstyled mt-3 fs-5">
+                        <li><strong>🍋 Category:</strong> Beverage / Starter</li>
+                        <li><strong>🌶️ Spice Level:</strong> 0 / 5</li>
+                        <li><strong>🥤 Preparation:</strong> 5 mins</li>
+                        <li><strong>⭐ Approved by:</strong> Chef Fluky (Head of Flavor)</li>
+                    </ul>
+
+                    <p class="h3 text-dark fw-bold mt-4">Price: <span class="text-success">220 TK</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 food-description">
+                <h3 class="fw-bold">Brotherhood Story</h3>
+                <p>The Lemon Mint Mojito is not just a drink; it's the "Pure Taste" guarantee of Bhojonroshik. Our chefs created this recipe specifically to contrast the heat of the "Friendship Masala Chaos Curry." It’s an essential part of the complete dining experience. When the "drama fried rice" gets too dramatic, a sip of this refreshes your soul and gets you ready for another round.</p>
+            </div>
+        </div>
+
+        <div class="row action-buttons text-center text-md-start">
+            <div class="col-12 d-grid gap-3 d-md-flex justify-content-md-start">
+                
+                <button id="custom-btn-dish-03" type="button" name="custom_food_button" class="btn btn-warning btn-lg px-4 fs-5" onclick="window.location.href='custom.html'">Customize Order</button>
+
+                <a href="order.html?item=Lemon%20Mint%20Mojito" class="btn btn-outline-success btn-lg px-4 fs-5">
+                    Order Now
+                </a>
+
+                <a href="menu.html" class="btn btn-secondary btn-lg px-4 fs-5">
+                    Back to Menu
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <p class="mb-1">📞 01792161240</p>
+        <p class="mb-1">📍 Chittagong, Bangladesh</p>
+        <p class="mb-0">Made by Swapnil &copy; 2026 Bhojonroshik </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

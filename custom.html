@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Custom Food</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-soft: #1b1b1b;
+            --accent: #ffc107;
+            --text: #f8f9fa;
+        }
+
+        /* পেজের ব্যাকগ্রাউন্ড */
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right, rgba(255, 193, 7, 0.2), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.06), transparent 35%),
+                var(--bg-dark);
+            color: var(--text);
+        }
+
+        /* নেভবার লোগো সাইজ */
+        .navbar-brand img { width: 34px; height: 34px; object-fit: contain; }
+
+        /* প্রতিটা ডিশ কার্ড */
+        .custom-card {
+            background: linear-gradient(160deg, #242424, #191919);
+            border: 1px solid rgba(255, 193, 7, 0.25);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* কার্ড হোভার এফেক্ট */
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        /* কার্ডের ডিশ ছবি */
+        .food-logo { width: 100%; height: 200px; object-fit: cover; }
+
+        /* Calculate বাটন স্টাইল */
+        .custom-btn {
+            background-color: var(--accent);
+            border: none;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        /* বাটন হোভার */
+        .custom-btn:hover { background-color: #ffd558; color: #111; }
+
+        /* রেজাল্ট বক্স — calculate করার পর দেখাবে */
+        .result-display {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px dashed var(--accent);
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Order বাটন */
+        .order-btn {
+            background-color: #198754;
+            border: none;
+            color: white;
+            font-weight: 700;
+            display: none;
+        }
+
+        /* Order বাটন হোভার */
+        .order-btn:hover { background-color: #157347; }
+    </style>
+</head>
+<body>
+
+    <!-- ========== নেভবার শুরু ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+            <!-- লোগো -->
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+                <img src="images/logo.png" alt="Logo">
+                <span>Bhojonroshik</span>
+            </a>
+
+            <!-- মোবাইলে হ্যামবার্গার বাটন -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- নেভবার লিংক -->
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="custom.html">Custom</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- ========== নেভবার শেষ ========== -->
+
+
+    <!-- ========== মূল কন্টেন্ট শুরু ========== -->
+    <main class="container py-5">
+
+        <!-- পেজ শিরোনাম -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Custom Food Options</h1>
+            <p class="text-light-emphasis">Customize your ingredients and see the price instantly.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                <a href="chef-select.html" class="btn btn-outline-warning fw-bold px-4">Chef Select</a>
+                <a href="complain.html" class="btn btn-outline-light fw-bold px-4">Complain</a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- ========== ডিশ ০১ — Masala Chai ========== -->
+            <!-- বেস প্রাইস data-base-price এ থাকবে -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="40">
+
+                    <!-- ডিশের ছবি -->
+                    <img src="images/dish-01.jpg" class="food-logo" alt="Masala Chai">
+
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Masala Chai</h5>
+                        <!-- বেস প্রাইস দেখানো -->
+                        <p class="text-warning small mb-3">Base Price: ৳40</p>
+
+                        <!-- দুধের ধরন সিলেক্ট -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="40">গরুর দুধ (+৳40)</option>
+                            <option value="50">ছাগলের দুধ (+৳50)</option>
+                            <option value="20">পাউডার দুধ (+৳20)</option>
+                        </select>
+
+                        <!-- চিনির পরিমাণ সিলেক্ট -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">চিনি কম (+৳0)</option>
+                            <option value="0">চিনি মাঝারি (+৳0)</option>
+                            <option value="10">চিনি বেশি (+৳10)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন চেকবক্স -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Extra Adrak (+৳15)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Extra Elaach (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Cream Add (+৳20)</label>
+                            </div>
+                        </div>
+
+                        <!-- Calculate বাটন -->
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+
+                        <!-- রেজাল্ট বক্স -->
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+
+                        <!-- অর্ডার বাটন -->
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০১ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০২ — Hazelnut Cold Coffee ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="180">
+                    <img src="images/dish-02.jpg" class="food-logo" alt="Hazelnut Cold Coffee">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Hazelnut Cold Coffee</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳180</p>
+
+                        <!-- দুধের ধরন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="20">Full Cream Milk (+৳20)</option>
+                            <option value="30">Oat Milk (+৳30)</option>
+                            <option value="0">Skimmed Milk (+৳0)</option>
+                        </select>
+
+                        <!-- চিনির পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">No Sugar (+৳0)</option>
+                            <option value="0">Normal Sugar (+৳0)</option>
+                            <option value="10">Extra Sugar (+৳10)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Extra Hazelnut Syrup (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="25">
+                                <label class="form-check-label">Whipped Cream (+৳25)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Extra Shot (+৳30)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০২ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৩ — Lemon Mint Mojito ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="150">
+                    <img src="images/dish-03.jpg" class="food-logo" alt="Lemon Mint Mojito">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Lemon Mint Mojito</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳150</p>
+
+                        <!-- বরফের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Less Ice (+৳0)</option>
+                            <option value="0">Normal Ice (+৳0)</option>
+                            <option value="0">Extra Ice (+৳0)</option>
+                        </select>
+
+                        <!-- চিনির পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">চিনি কম (+৳0)</option>
+                            <option value="10">চিনি বেশি (+৳10)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Extra Mint (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Extra Lemon (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Extra Soda (+৳15)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৩ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৪ — Chicken Cheese Burger ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="280">
+                    <img src="images/dish-04.jpg" class="food-logo" alt="Chicken Cheese Burger">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Chicken Cheese Burger</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳280</p>
+
+                        <!-- চিজের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Single Cheese (+৳0)</option>
+                            <option value="40">Double Cheese (+৳40)</option>
+                            <option value="70">Triple Cheese (+৳70)</option>
+                        </select>
+
+                        <!-- মিটের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Single Patty (+৳0)</option>
+                            <option value="80">Double Patty (+৳80)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Extra Sauce (+৳15)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Extra Egg (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Lettuce & Tomato (+৳15)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৪ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৫ — Paneer Tikka Sandwich ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="220">
+                    <img src="images/dish-05.jpg" class="food-logo" alt="Paneer Tikka Sandwich">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Paneer Tikka Sandwich</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳220</p>
+
+                        <!-- পনিরের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Paneer (+৳0)</option>
+                            <option value="50">Extra Paneer (+৳50)</option>
+                        </select>
+
+                        <!-- ব্রেডের ধরন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Bread (+৳0)</option>
+                            <option value="20">Multigrain Bread (+৳20)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Extra Chutney (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Extra Cheese (+৳30)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Onion Ring (+৳15)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৫ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৬ — Chicken Nachos ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="250">
+                    <img src="images/dish-06.jpg" class="food-logo" alt="Chicken Nachos">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Chicken Nachos</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳250</p>
+
+                        <!-- চিকেনের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Chicken (+৳0)</option>
+                            <option value="50">Extra Chicken (+৳50)</option>
+                        </select>
+
+                        <!-- চিজ সস -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Cheese Sauce (+৳0)</option>
+                            <option value="30">Extra Cheese Sauce (+৳30)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Jalapeño (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Sour Cream (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="25">
+                                <label class="form-check-label">Guacamole (+৳25)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৬ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৭ — Vegetable Spring Rolls ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="160">
+                    <img src="images/dish-07.jpg" class="food-logo" alt="Vegetable Spring Rolls">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Vegetable Spring Rolls</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳160</p>
+
+                        <!-- পরিমাণ সিলেক্ট -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">4 Pieces (+৳0)</option>
+                            <option value="40">6 Pieces (+৳40)</option>
+                            <option value="70">8 Pieces (+৳70)</option>
+                        </select>
+
+                        <!-- সসের ধরন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Sweet Chili Sauce (+৳0)</option>
+                            <option value="0">Soy Sauce (+৳0)</option>
+                            <option value="15">Extra Sauce (+৳15)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Extra Veggies (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Extra Crispy (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Cheese Fill (+৳30)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৭ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৮ — Chicken Dum Biryani ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="320">
+                    <img src="images/dish-08.jpg" class="food-logo" alt="Chicken Dum Biryani">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Chicken Dum Biryani</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳320</p>
+
+                        <!-- চিকেনের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Chicken (+৳0)</option>
+                            <option value="80">Extra Chicken (+৳80)</option>
+                        </select>
+
+                        <!-- ঝালের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">কম ঝাল (+৳0)</option>
+                            <option value="0">মাঝারি ঝাল (+৳0)</option>
+                            <option value="0">বেশি ঝাল (+৳0)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Raita (+৳30)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="25">
+                                <label class="form-check-label">Extra Egg (+৳25)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Salad (+৳20)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৮ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ০৯ — Mutton Rezala ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="380">
+                    <img src="images/dish-09.jpg" class="food-logo" alt="Mutton Rezala">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Mutton Rezala</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳380</p>
+
+                        <!-- মাংসের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Mutton (+৳0)</option>
+                            <option value="100">Extra Mutton (+৳100)</option>
+                        </select>
+
+                        <!-- গ্রেভির পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Gravy (+৳0)</option>
+                            <option value="20">Extra Gravy (+৳20)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="40">
+                                <label class="form-check-label">Naan Add (+৳40)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="25">
+                                <label class="form-check-label">Extra Egg (+৳25)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Salad (+৳20)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ০৯ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ১০ — Prawn Malai Curry ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="420">
+                    <img src="images/dish-10.jpg" class="food-logo" alt="Prawn Malai Curry">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Prawn Malai Curry</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳420</p>
+
+                        <!-- চিংড়ির পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Prawn (+৳0)</option>
+                            <option value="100">Extra Prawn (+৳100)</option>
+                        </select>
+
+                        <!-- ঝালের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">কম ঝাল (+৳0)</option>
+                            <option value="0">মাঝারি ঝাল (+৳0)</option>
+                            <option value="0">বেশি ঝাল (+৳0)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="40">
+                                <label class="form-check-label">Rice Add (+৳40)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Salad (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Papadom (+৳15)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ১০ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ১১ — Butter Chicken with Naan ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="350">
+                    <img src="images/dish-11.jpg" class="food-logo" alt="Butter Chicken with Naan">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Butter Chicken with Naan</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳350</p>
+
+                        <!-- চিকেনের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Normal Chicken (+৳0)</option>
+                            <option value="80">Extra Chicken (+৳80)</option>
+                        </select>
+
+                        <!-- নানের পরিমাণ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">2 Pieces Naan (+৳0)</option>
+                            <option value="60">4 Pieces Naan (+৳60)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Extra Butter (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="25">
+                                <label class="form-check-label">Extra Egg (+৳25)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Salad (+৳20)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ১১ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ১২ — Grilled Fish Steak ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="400">
+                    <img src="images/dish-12.jpg" class="food-logo" alt="Grilled Fish Steak">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Grilled Fish Steak</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳400</p>
+
+                        <!-- মাছের সাইজ -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Regular Size (+৳0)</option>
+                            <option value="100">Large Size (+৳100)</option>
+                        </select>
+
+                        <!-- সসের ধরন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Lemon Butter Sauce (+৳0)</option>
+                            <option value="0">Garlic Sauce (+৳0)</option>
+                            <option value="20">Extra Sauce (+৳20)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Extra Veggies (+৳30)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="40">
+                                <label class="form-check-label">Mashed Potato (+৳40)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Garlic Bread (+৳30)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ১২ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ১৩ — Gulab Jamun with Ice Cream ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="180">
+                    <img src="images/dish-13.jpg" class="food-logo" alt="Gulab Jamun with Ice Cream">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Gulab Jamun with Ice Cream</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳180</p>
+
+                        <!-- পরিমাণ সিলেক্ট -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">2 Pieces (+৳0)</option>
+                            <option value="60">4 Pieces (+৳60)</option>
+                            <option value="120">6 Pieces (+৳120)</option>
+                        </select>
+
+                        <!-- আইসক্রিম অপশন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">No Ice Cream (+৳0)</option>
+                            <option value="50">Yes Ice Cream (+৳50)</option>
+                        </select>
+
+                        <!-- এক্সট্রা অ্যাড-অন -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="10">
+                                <label class="form-check-label">Extra Syrup (+৳10)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Nuts Topping (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Cream Add (+৳15)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ১৩ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ১৪ — Chocolate Lava Cake ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="200">
+                    <img src="images/dish-14.jpg" class="food-logo" alt="Chocolate Lava Cake">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Chocolate Lava Cake</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳200</p>
+
+                        <!-- আইসক্রিম অপশন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">No Ice Cream (+৳0)</option>
+                            <option value="50">Yes Ice Cream (+৳50)</option>
+                        </select>
+
+                        <!-- এক্সট্রা টপিং চেকবক্স -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Extra Chocolate (+৳30)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Nuts Topping (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="25">
+                                <label class="form-check-label">Whipped Cream (+৳25)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Strawberry (+৳20)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ১৪ শেষ ========== -->
+
+
+            <!-- ========== ডিশ ১৫ — Mango Cheesecake ========== -->
+            <div class="col-lg-4 col-md-6">
+                <div class="custom-card h-100" data-base-price="220">
+                    <img src="images/dish-15.jpg" class="food-logo" alt="Mango Cheesecake">
+                    <div class="p-3 text-center">
+                        <h5 class="mb-1">Mango Cheesecake</h5>
+                        <p class="text-warning small mb-3">Base Price: ৳220</p>
+
+                        <!-- স্লাইস অপশন -->
+                        <select class="form-select bg-dark text-white border-secondary mb-2">
+                            <option value="0">Single Slice (+৳0)</option>
+                            <option value="120">Double Slice (+৳120)</option>
+                        </select>
+
+                        <!-- এক্সট্রা টপিং চেকবক্স -->
+                        <div class="text-start mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="30">
+                                <label class="form-check-label">Extra Mango (+৳30)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Whipped Cream (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="20">
+                                <label class="form-check-label">Nuts Topping (+৳20)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="15">
+                                <label class="form-check-label">Chocolate Drizzle (+৳15)</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn custom-btn w-100 calc-btn">Calculate Price</button>
+                        <div class="result-display mt-3 p-2">
+                            <h6 class="mb-1 text-warning">Total: <span class="total-price">0</span> ৳</h6>
+                        </div>
+                        <button type="button" class="btn order-btn w-100 mt-2 go-order-btn">🛒 Order Now</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== ডিশ ১৫ শেষ ========== -->
+
+        </div>
+    </main>
+
+    <!-- ========== ফুটার ========== -->
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <p class="mb-0">📞 01792161240 &nbsp;|&nbsp; 📍 Chittagong, Bangladesh &nbsp;|&nbsp; Made by Swapnil &copy; 2026</p>
+    </footer>
+
+    <!-- বুটস্ট্র্যাপ JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- কাস্টম ডিশ JS — সব logic আলাদা file এ -->
+    <script src="custom-dish.js"></script>
+
+</body>
+</html>

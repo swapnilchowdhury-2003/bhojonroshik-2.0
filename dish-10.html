@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Prawn Malai Curry</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* ন্যাভবার লোগো স্টাইল */
+        .navbar-brand img {
+            max-width: 160px;
+        }
+
+        /* স্কেচ অনুযায়ী বাম দিকের বড় ছবি */
+        .food-pic {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* ডান দিকের ফুড ডাটা বক্স */
+        .food-data {
+            background-color: #fff9f0; /* মালাই কারির জন্য হালকা কোকোনাট থিম */
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #fd7e14;
+        }
+
+        /* বর্ণনা সেকশন */
+        .food-description {
+            margin-top: 30px;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* বাটন সেকশন */
+        .action-buttons {
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Bhojonroshik Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-7 mb-4">
+                <img src="images/dish-10.jpg" alt="Prawn Malai Curry" class="food-pic img-fluid">
+            </div>
+
+            <div class="col-md-5">
+                <div class="food-data">
+                    <h1 class="display-5 fw-bold text-dark">Prawn Malai Curry</h1>
+                    <p class="lead fw-bold" style="color: #fd7e14;">Jumbo prawns simmered in a rich, creamy coconut milk gravy.</p>
+                    
+                    <ul class="list-unstyled mt-3 fs-5">
+                        <li><strong>🦐 Category:</strong> Main Course / Seafood</li>
+                        <li><strong>🥥 Main Base:</strong> Fresh Coconut Milk</li>
+                        <li><strong>⏲️ Prep Time:</strong> 15 mins</li>
+                        <li><strong>⭐ Quality:</strong> Fresh Catch from Bay</li>
+                    </ul>
+
+                    <p class="h3 text-dark fw-bold mt-4">Price: <span style="color: #fd7e14;">550 TK</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 food-description">
+                <hr>
+                <h3 class="fw-bold" style="color: #fd7e14;">Ocean's Creamy Secret</h3>
+                <p>'Bhojonroshik' এর গলদা চিংড়ির মালাই কারি মানেই অন্যরকম এক স্বাদ। নারিকেলের দুধ আর হালকা মশলার এই যুগলবন্দি গরম ভাতের সাথে অমৃতের মতো লাগে। আমরা ফ্রেশ এবং বড় সাইজের চিংড়ি ব্যবহার করি যাতে প্রতিটি কামড়ে আপনি আসল স্বাদ পান। চট্টগ্রামের ভোজনরসিকদের জন্য এটি আমাদের অন্যতম সেরা ডিশ।</p>
+            </div>
+        </div>
+
+        <div class="row action-buttons">
+            <div class="col-12 d-grid gap-3 d-md-flex justify-content-md-start">
+                
+                <button id="custom-btn-dish-10" type="button" name="custom_food_button" class="btn btn-warning btn-lg px-4 fw-bold" onclick="window.location.href='custom.html'">Customize Plate</button>
+                <a href="order.html?item=Prawn%20Malai%20Curry" class="btn btn-success btn-lg px-4 fw-bold">Order Now</a>
+                <a href="menu.html" class="btn btn-outline-secondary btn-lg px-4">Back to Menu</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="py-3 bg-dark text-white text-center mt-5">
+        <p class="mb-1">📞 01792161240</p>
+        <p class="mb-1">📍 Chittagong, Bangladesh</p>
+        <p class="mb-0">Made by Swapnil &copy; 2026 Bhojonroshik </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

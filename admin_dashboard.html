@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ব্যাকগ্রাউন্ডে হালকা লোগো */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: url('images/logo.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* কার্ড ডিজাইন */
+        .dashboard-card {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        /* বড় বাটন */
+        .action-btn {
+            border-radius: 15px;
+            padding: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .action-btn:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-light d-flex align-items-center vh-100">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card dashboard-card p-5">
+
+                    <!-- হেডার -->
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold text-dark">Admin Dashboard</h2>
+                        <p class="text-muted small">স্বাগতম! নিচের অপশন থেকে বেছে নিন</p>
+                    </div>
+
+                    <!-- দুইটা বাটন -->
+                    <div class="d-grid gap-4">
+
+                        <!-- অর্ডার দেখো বাটন -->
+                        <button class="btn btn-danger action-btn" onclick="orderDekho()">
+                            🍽️ Order দেখো
+                        </button>
+
+                        <!-- অভিযোগ দেখো বাটন -->
+                        <button class="btn btn-dark action-btn" onclick="complainDekho()">
+                            📋 Complain দেখো
+                        </button>
+
+                    </div>
+
+                    <!-- হোম লিংক -->
+                    <div class="text-center mt-4 d-flex justify-content-center gap-3">
+                        <a href="index.html" class="text-decoration-none text-secondary small">
+                            Back to Home
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // লগইন চেক — সরাসরি URL দিয়ে ঢুকলে ব্লক করবে
+        if (!sessionStorage.getItem("adminLoggedIn")) {
+            alert("আপনি লগইন করেননি!");
+            window.location.href = "admin_login.html";
+        }
+
+        // অর্ডার Google Sheet খুলবে
+        function orderDekho() {
+            window.open(
+                "https://docs.google.com/spreadsheets/d/1DFPzjDREH4Np-MRAfUoDCVPxSk2CVsLF0DERMXP6vYg/edit?resourcekey=&gid=583898214#gid=583898214",
+                "_blank"
+            );
+        }
+
+        // অভিযোগ Google Sheet খুলবে
+        function complainDekho() {
+            window.open(
+                "https://docs.google.com/spreadsheets/d/1idDajuk8tk88kOHqVwSx-9mc-CDDj2JBkofKiMPZrmk/edit?resourcekey=&gid=997371984#gid=997371984",
+                "_blank"
+            );
+        }
+    </script>
+
+</body>
+</html>

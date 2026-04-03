@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Masala Chai</title>
+
+    <!-- বুটস্ট্র্যাপ CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* পুরো পেজের ডার্ক ব্যাকগ্রাউন্ড */
+        body {
+            background-color: #1a1a2e;
+            color: #f0f0f0;
+        }
+
+        /* পেজের পিছনে লোগো ওয়াটারমার্ক */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background-image: url('images/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.04;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* সব কন্টেন্ট ওয়াটারমার্কের উপরে থাকবে */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ডিশের বড় ছবির স্টাইল */
+        .dish-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            object-fit: cover;
+        }
+
+        /* ফুড ডেটা সেকশনের ডার্ক কার্ড */
+        .food-data {
+            background-color: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        /* দামের স্টাইল */
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f5a623;
+        }
+
+        /* ইনগ্রেডিয়েন্ট ব্যাজ */
+        .badge-ingredient {
+            font-size: 0.85rem;
+            margin: 3px;
+            background-color: #0f3460 !important;
+        }
+
+        /* লিস্ট আইটেমের রঙ */
+        .food-data li {
+            color: #cccccc;
+            margin-bottom: 6px;
+        }
+
+        /* বিস্তারিত বর্ণনা সেকশন */
+        .detail-section {
+            background-color: #16213e;
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #0f3460;
+        }
+
+        /* বিস্তারিত বর্ণনার টেক্সট */
+        .detail-section p {
+            color: #cccccc;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== নেভবার শুরু ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0f3460;">
+        <div class="container">
+
+            <!-- লোগো ছবি একটু বড় করা — images/logo.png -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Bhojonroshik Logo" height="55">
+            </a>
+
+            <!-- মোবাইলে হ্যামবার্গার বাটন -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- নেভবার লিংক গুলো -->
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <!-- হোম লিংক -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <!-- মেনু লিংক — এই পেজ থেকে active -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="menu.html">Menu</a>
+                    </li>
+
+                    <!-- অ্যাবাউট লিংক -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- ========== নেভবার শেষ ========== -->
+
+
+    <!-- ========== মূল কন্টেন্ট শুরু ========== -->
+    <div class="container my-5">
+        <div class="row g-4">
+
+            <!-- বাম দিকে ডিশের ছবি -->
+            <div class="col-md-6">
+                <!-- ছবি save করো: images/dish-01.jpg -->
+                <img src="images/dish-01.jpg" alt="Masala Chai" class="dish-img">
+            </div>
+
+            <!-- ডান দিকে ফুড ডেটা -->
+            <div class="col-md-6">
+                <div class="food-data">
+
+                    <!-- ডিশের নাম -->
+                    <h2 class="fw-bold mb-2" style="color: #f5a623;">Masala Chai</h2>
+
+                    <!-- ক্যাটাগরি ব্যাজ -->
+                    <span class="badge bg-warning text-dark mb-3">🍵 Hot Beverage</span>
+
+                    <!-- দাম -->
+                    <div class="price-tag mb-3">৳ 60</div>
+
+                    <!-- ডিশের বর্ণনা -->
+                    <p class="mb-3" style="color: #cccccc;">
+                        আমাদের বিশেষ মশলা চা — আদা, এলাচ, দারুচিনি আর তেজপাতার অনন্য মিশ্রণে তৈরি।
+                        প্রতিটা চুমুকে অনুভব করবে ঐতিহ্যবাহী স্বাদ।
+                    </p>
+
+                    <!-- ইনগ্রেডিয়েন্ট লিস্ট -->
+                    <h6 class="fw-bold mb-2" style="color: #f5a623;">উপকরণ:</h6>
+                    <div class="mb-3">
+                        <span class="badge badge-ingredient">চা পাতা</span>
+                        <span class="badge badge-ingredient">আদা</span>
+                        <span class="badge badge-ingredient">এলাচ</span>
+                        <span class="badge badge-ingredient">দারুচিনি</span>
+                        <span class="badge badge-ingredient">তেজপাতা</span>
+                        <span class="badge badge-ingredient">দুধ</span>
+                        <span class="badge badge-ingredient">চিনি</span>
+                    </div>
+
+                    <!-- পরিবেশন তথ্য -->
+                    <ul class="list-unstyled mb-4">
+                        <!-- প্রস্তুতির সময় -->
+                        <li>⏱️ <strong style="color: #f0f0f0;">প্রস্তুতির সময়:</strong> ১০ মিনিট</li>
+                        <!-- পরিবেশন -->
+                        <li>🍽️ <strong style="color: #f0f0f0;">পরিবেশন:</strong> ১ কাপ</li>
+                        <!-- ক্যালোরি -->
+                        <li>🔥 <strong style="color: #f0f0f0;">ক্যালোরি:</strong> ~৮০ kcal</li>
+                    </ul>
+
+                    <!-- অর্ডার এবং কাস্টম বাটন -->
+                    <div class="d-flex gap-3">
+
+                        <!-- অর্ডার বাটন — order.html পেজে যাবে -->
+                        <a href="order.html?item=Masala%20Chai" class="btn btn-warning btn-lg px-4">🛒 Order Now</a>
+
+                        <!-- কাস্টম ডিশ বাটন — custom.html পেজে যাবে -->
+                        <button id="custom-btn-dish-01" type="button" name="custom_food_button" class="btn btn-outline-light btn-lg px-4" onclick="window.location.href='custom.html'">✏️ Customize</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ========== নিচে বিস্তারিত বর্ণনা ========== -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="detail-section">
+                    <h4 class="fw-bold mb-3" style="color: #f5a623;">আরও বিস্তারিত</h4>
+                    <p>
+                        Bhojonroshik এর Masala Chai শুধু একটা পানীয় নয় — এটা একটা অনুভূতি।
+                        সকালের শুরু হোক বা বিকেলের আড্ডা, এই চা তোমার সঙ্গী।
+                        আমাদের শেফ প্রতিটা কাপ তাজা মশলা দিয়ে তৈরি করেন।
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- ========== বিস্তারিত বর্ণনা শেষ ========== -->
+
+    </div>
+    <!-- ========== মূল কন্টেন্ট শেষ ========== -->
+
+
+    <!-- ========== ফুটার শুরু ========== -->
+    <footer class="py-3 text-white text-center mt-5" style="background-color: #0f3460;">
+        <!-- সব তথ্য এক লাইনে -->
+        <p class="mb-0">📞 01792161240 &nbsp;|&nbsp; 📍 Chittagong, Bangladesh &nbsp;|&nbsp; Made by Swapnil &copy; 2026</p>
+    </footer>
+    <!-- ========== ফুটার শেষ ========== -->
+
+
+    <!-- বুটস্ট্র্যাপ JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

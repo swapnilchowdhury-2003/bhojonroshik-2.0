@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhojonroshik | Complain Box</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .complain-card {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .form-label { font-weight: bold; color: #333; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card complain-card p-4">
+                    <h2 class="text-center mb-4 text-danger fw-bold">Complain Box</h2>
+                    <p class="text-center text-muted small">আপনার অভিযোগ বা মতামত আমাদের জানান</p>
+
+                    <form id="complainForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">NAME</label>
+                            <input type="text" id="name" class="form-control" placeholder="আপনার নাম লিখুন" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">EMAIL</label>
+                            <input type="email" id="email" class="form-control" placeholder="আপনার ইমেইল" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="complain" class="form-label">COMPLAIN</label>
+                            <textarea id="complain" class="form-control" rows="4" placeholder="বিস্তারিত লিখুন..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger w-100 fw-bold py-2">Submit Complain</button>
+                    </form>
+                    
+                    <div id="successMsg" class="alert alert-success mt-3 d-none">
+                        ধন্যবাদ! আপনার অভিযোগটি সফলভাবে জমা হয়েছে।
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("complainForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // পেজ রিফ্রেশ হওয়া বন্ধ করবে
+
+            // তোমার গুগল ফর্মের Entry ID গুলো এখানে সেট করা হয়েছে
+            // (তোমার প্রি-ফিল লিঙ্ক থেকে বের করা হয়েছে)
+            const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSd7n3jjLB_bhnPWbsG6NvrHuAfE7A3MmiSLwYyTNmB05iIVOg/formResponse";
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const complain = document.getElementById("complain").value;
+
+            // ডাটা ম্যাপ করা (Entry IDs: entry.1656828552, entry.1278144208, entry.478440798)
+            const formData = new FormData();
+          formData.append("entry.1743600140", name);    // Name entry id
+formData.append("entry.1832410388", email);   // Email entry id
+formData.append("entry.432157039", complain); // Complain entry id
+
+            // ডাটা পাঠানোর প্রক্রিয়া (Fetch API ব্যবহার করে)
+            fetch(formURL, {
+                method: "POST",
+                mode: "no-cors", // গুগল ফর্ম সাবমিটের জন্য এটি দিতেই হবে
+                body: formData
+            }).then(() => {
+                // সফল হলে ফর্ম লুকিয়ে মেসেজ দেখাবে
+                document.getElementById("complainForm").reset();
+                document.getElementById("successMsg").classList.remove("d-none");
+                alert("আপনার অভিযোগটি জমা হয়েছে। ধন্যবাদ!");
+            }).catch(error => {
+                console.error("Error!", error.message);
+                alert("দুঃখিত, কোনো সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+            });
+        });
+    </script>
+
+</body>
+</html>
