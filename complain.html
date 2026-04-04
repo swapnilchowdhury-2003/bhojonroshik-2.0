@@ -5,42 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhojonroshik | Complain Box</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff7f3 0%, #ffe6d9 100%);
+        }
+        .brand-logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            padding: 10px;
+        }
         .complain-card {
             border-radius: 20px;
             border: none;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             background-color: rgba(255, 255, 255, 0.9);
         }
+        .card-head-badge {
+            letter-spacing: 0.08em;
+        }
         .form-label { font-weight: bold; color: #333; }
     </style>
 </head>
-<body class="bg-light">
+<body>
 
     <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-8">
                 <div class="card complain-card p-4">
-                    <h2 class="text-center mb-4 text-danger fw-bold">Complain Box</h2>
-                    <p class="text-center text-muted small">আপনার অভিযোগ বা মতামত আমাদের জানান</p>
+                    <div class="text-center mb-3">
+                        <img src="images/logo.png" alt="Bhojonroshik Logo" class="brand-logo mb-3">
+                        <div class="badge bg-danger-subtle text-danger card-head-badge mb-2">CUSTOMER SUPPORT</div>
+                        <h2 class="mb-2 text-danger fw-bold">Complain Box</h2>
+                        <p class="text-muted small mb-0">আপনার অভিযোগ বা মতামত আমাদের জানান</p>
+                    </div>
+                    <hr class="my-4">
 
                     <form id="complainForm">
                         <div class="mb-3">
                             <label for="name" class="form-label">NAME</label>
-                            <input type="text" id="name" class="form-control" placeholder="আপনার নাম লিখুন" required>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" id="name" class="form-control" placeholder="আপনার নাম লিখুন" required>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">EMAIL</label>
-                            <input type="email" id="email" class="form-control" placeholder="আপনার ইমেইল" required>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" id="email" class="form-control" placeholder="আপনার ইমেইল" required>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="complain" class="form-label">COMPLAIN</label>
-                            <textarea id="complain" class="form-control" rows="4" placeholder="বিস্তারিত লিখুন..." required></textarea>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
+                                <textarea id="complain" class="form-control" rows="4" placeholder="বিস্তারিত লিখুন..." required></textarea>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-danger w-100 fw-bold py-2">Submit Complain</button>
+                        <button type="submit" class="btn btn-danger w-100 fw-bold py-2">
+                            <i class="bi bi-send-fill me-2"></i>Submit Complain
+                        </button>
                     </form>
                     
                     <div id="successMsg" class="alert alert-success mt-3 d-none">
