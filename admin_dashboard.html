@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhojonroshik | Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(145deg, #f8fbff 0%, #edf1fb 100%);
+        }
         /* ব্যাকগ্রাউন্ডে হালকা লোগো */
         body::before {
             content: "";
@@ -21,27 +25,44 @@
             z-index: -1;
         }
 
+        .brand-logo {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #eceff5;
+            box-shadow: 0 10px 28px rgba(18, 28, 53, 0.16);
+        }
+
         /* কার্ড ডিজাইন */
         .dashboard-card {
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 14px 36px rgba(17, 29, 56, 0.14);
             border: none;
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
         /* বড় বাটন */
         .action-btn {
             border-radius: 15px;
-            padding: 30px;
+            padding: 22px;
             font-size: 1.2rem;
             font-weight: bold;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         .action-btn:hover {
             transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.16);
         }
     </style>
 </head>
-<body class="bg-light d-flex align-items-center vh-100">
+<body class="d-flex align-items-center vh-100">
 
     <div class="container">
         <div class="row justify-content-center">
@@ -50,6 +71,8 @@
 
                     <!-- হেডার -->
                     <div class="text-center mb-5">
+                        <img src="images/logo.png" alt="Bhojonroshik Logo" class="brand-logo mb-3">
+                        <div class="badge text-bg-primary mb-2">ADMIN CONTROL</div>
                         <h2 class="fw-bold text-dark">Admin Dashboard</h2>
                         <p class="text-muted small">স্বাগতম! নিচের অপশন থেকে বেছে নিন</p>
                     </div>
@@ -59,12 +82,14 @@
 
                         <!-- অর্ডার দেখো বাটন -->
                         <button class="btn btn-danger action-btn" onclick="orderDekho()">
-                            🍽️ Order দেখো
+                            <i class="bi bi-receipt-cutoff"></i>
+                            Order দেখো
                         </button>
 
                         <!-- অভিযোগ দেখো বাটন -->
                         <button class="btn btn-dark action-btn" onclick="complainDekho()">
-                            📋 Complain দেখো
+                            <i class="bi bi-chat-left-text-fill"></i>
+                            Complain দেখো
                         </button>
 
                     </div>
